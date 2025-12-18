@@ -34,13 +34,18 @@
   </section>
 
   <section id="about" class="section">
-    <h2>About Me</h2>
+  <div class="about-card">
+    <div class="about-header">
+      <h2>About Me</h2>
+      <div class="underline"></div>
+    </div>
     <p>
       I am a detail-oriented programmer with a strong sense of professionalism and teamwork.
       My interests extend beyond technology to cars and music — I am an active pianist and organist cantor at church.
       I focus on clean design, structured solutions, and long-term reliability.
     </p>
-  </section>
+  </div>
+</section>
 
   <section id="skills" class="section">
     <h2>Skills</h2>
@@ -78,16 +83,30 @@
   </section>
 
   <section id="contact" class="section">
-    <h2>Contact</h2>
-    <div class="contact-container">
-      <form class="contact-form" action="mailto:popmarkviktor@gmail.com" method="POST" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your name" required />
-        <input type="email" name="email" placeholder="Your email" required />
-        <textarea name="message" placeholder="Your message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+  <div class="contact-card">
+    <div class="avatar-container">
+      <div class="avatar-circle">
+        <img src="me.png" alt="Profile" /> </div>
     </div>
-  </section>
+    <form class="contact-form" action="mailto:popmarkviktor@gmail.com" method="POST" enctype="text/plain">
+      <div class="input-group">
+        <span class="icon">&#128100;</span>
+        <input type="text" name="name" placeholder="Username" required />
+      </div>
+      <div class="input-group">
+        <span class="icon">&#9993;</span>
+        <input type="email" name="email" placeholder="Email Address" required />
+      </div>
+      <textarea name="message" placeholder="Your message..." rows="3" required></textarea>
+      
+      <div class="form-footer">
+        
+      </div>
+
+      <button type="submit" class="contact-btn">CONTACT ME</button>
+    </form>
+  </div>
+</section>
   <script src="script.js"></script>
 </body>
 </html>

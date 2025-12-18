@@ -20,11 +20,10 @@ body {
   font-family: system-ui, sans-serif;
   background: var(--bg-main);
   color: var(--text-main);
-  overflow-y: scroll; /* enable scrolling */
-  scrollbar-width: none; /* Firefox */
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
-/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
 body::-webkit-scrollbar {
   display: none;
 }
@@ -36,7 +35,7 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2.5rem;
+  padding: 1rem 2rem;
   background: rgba(18, 18, 18, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--accent);
@@ -54,6 +53,44 @@ body::-webkit-scrollbar {
 .navbar a:hover {
   color: var(--accent);
 }
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+#nav-links {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  #nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: var(--bg-main);
+    display: none;
+  }
+
+  #nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar a {
+    margin: 1rem;
+  }
+}
+
 .section {
   min-height: 100vh;
   display: flex;
@@ -75,38 +112,40 @@ body::-webkit-scrollbar {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* fill the hero section */
-  z-index: 0;   /* behind text/image */
+  height: 100%;
+  z-index: 0;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 1;   /* ensures text/image are above canvas */
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  text-align: center;
 }
 
 .hero-text h1 {
-  font-size: 3.2rem;
-  font-family: serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
 }
 
 .slogan {
-  margin-top: 1rem;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   color: var(--accent);
-  font-weight: 300;
 }
 
 .hero-image img {
-  width: 100%;
-  max-width: 320px;
+  width: clamp(150px, 30vw, 320px);
+  height: auto;
   border-radius: 16px;
   filter: grayscale(20%);
+}
+
+/* Center About Me section */
+#about {
+  text-align: center;
+  padding: 4rem 2rem;
 }
 
 .skills-list {

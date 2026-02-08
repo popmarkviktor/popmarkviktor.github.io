@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POP V. MÁRK-VIKTOR</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+  <!-- ================== NAVIGATION ================== -->
+  <header class="navbar">
+    <div class="logo">PMV</div>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <nav id="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ================== HERO SECTION ================== -->
+  <section id="home" class="section hero">
+    <canvas id="canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>POP MÁRK-VIKTOR</h1>
+        <p class="slogan">"Dream big and dare to fail."</p>
+        <a href="https://drive.google.com/drive/folders/1DkjBry9Fd0HEhCNngBSeNYoyO9omcWHL?usp=sharing" class="hero-btn">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== ABOUT SECTION ================== -->
+  <section id="about" class="section">
+    <div class="about-card">
+      <div class="about-header">
+        <h2>About Me</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            <span class="highlight">Self-taught full-stack developer</span> with a hands-on experience with utility-scale PV systems gained through on-site work and a strong interest in engineering and technology. Currently studying <span class="highlight">Automotive Engineering in Oradea</span>.
+          </p>
+          <p>
+            Born in <span class="highlight">Dorolt, Satu Mare</span>, I also serve as an organist, shaping discipline, creativity, and attention to detail.
+          </p>
+          <p>
+            Motivated, curious, and always learning — focused on practical solutions and personal growth.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="me.webp" alt="Picture of me" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== EDUCATION SECTION ================== -->
+  <section id="education" class="section">
+    <div class="skills-intro">
+      <h2>Education</h2>
+      <div class="underline"></div>
+      <p>My academic journey and formal training.</p>
+    </div>
+
+    <div class="education-timeline">
+      <!-- High School -->
+      <div class="education-card">
+        <img src="cndssm_logo.png" alt="Colegiul Național Doamna Stanca Logo">
+        <div class="education-content">
+          <h3>Colegiul Național „Doamna Stanca” Satu Mare</h3>
+          <span class="edu-date">2021 — 2025</span>
+          <p>
+            <strong>Mathematics and Computer Science</strong><br>
+            A prestigious high school known for its rigorous academic programs, particularly in mathematics and computer science. It prepares students for higher education through a strong focus on theoretical and practical knowledge, fostering critical thinking, discipline, and innovation. The school has a longstanding tradition of excellence in both science and humanities, and it actively encourages student participation in competitions and extracurricular activities.
+          </p>
+          <a href="https://cndssm.com" target="_blank" class="edu-link">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- University -->
+      <div class="education-card">
+        <img src="uoradea_logo.jpg" alt="Universitatea din Oradea Logo">
+        <div class="education-content">
+          <h3>University of Oradea</h3>
+          <span class="edu-date">2025 — 2029</span>
+          <p>
+            <strong>Faculty of Managerial and Technological Engineering</strong><br>
+            <cite>Automotive Engineering</cite><br>
+            Offers multidisciplinary programs focused on engineering, technology, and management. The university emphasizes practical skills and innovation to prepare students for careers in automotive, transport, and industrial sectors. It combines theoretical knowledge with hands-on experience, fostering both technical expertise and leadership abilities.
+          </p>
+          <a href="https://imt.uoradea.ro" target="_blank" class="edu-link">Visit Website</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== SKILLS SECTION ================== -->
+  <section id="skills" class="section">
+    <div class="skills-intro">
+      <h2>Skills & Expertise</h2>
+      <div class="underline"></div>
+      <p>Technologies and principles I actively use to build reliable, scalable, and clean solutions.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <h3>Full-stack Developer</h3>
+        <p>HTML, JS, C/C++, C#, Java with focus on responsiveness, accessibility, and performance.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🧠</div>
+        <h3>Problem Solving</h3>
+        <p>Breaking down complex challenges into maintainable, real-world solutions.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🏗️</div>
+        <h3>Clean Architecture</h3>
+        <p>Readable codebases, modular design, and long-term maintainability.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🤝</div>
+        <h3>Team Collaboration</h3>
+        <p>Clear communication, version control, and professional teamwork workflows.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== CONTACT SECTION ================== -->
+  <section id="contact" class="section">
+    <div class="contact-card">
+      <div class="avatar-container">
+        <div class="avatar-circle">
+          <img src="avatar.webp" alt="Profile" />
+        </div>
+      </div>
+      <form id="contactForm" class="contact-form">
+        <div class="input-group">
+          <span class="icon">&#128100;</span>
+          <input type="text" id="name" placeholder="Name" required />
+        </div>
+        <div class="input-group">
+          <span class="icon">&#9993;</span>
+          <input type="text" id="subject" placeholder="Subject" required />
+        </div>
+        <textarea id="message" placeholder="Your message..." rows="3" required></textarea>
+        <div id="messageError" style="color: red; font-size: 0.9rem; margin-top: 4px; display: none;">
+    Please enter a message with at least 15 characters.
+  </div>
+        <div class="form-footer"></div>
+        <button type="submit" class="contact-btn">CONTACT ME</button>
+        <div id="confirmation" style="color: green; font-size: 1rem; margin-top: 10px; display: none;">
+  Message sent!
+</div>
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

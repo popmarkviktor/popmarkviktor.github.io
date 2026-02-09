@@ -354,7 +354,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(59,130,246,0.15), transparent);
+  background: linear-gradient(120deg, transparent, rgba(21, 88, 11, 0.15), transparent);
   opacity: 0;
   transition: opacity 0.35s;
 }
@@ -511,3 +511,4 @@ p {
   .about-image img { width: 180px; }
   .experience-grid { grid-template-columns: 1fr; }
 }
+

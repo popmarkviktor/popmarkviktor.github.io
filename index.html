@@ -1,170 +1,306 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>POP V. MÁRK-VIKTOR</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POP V. MÁRK-VIKTOR</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <!-- ================== NAVIGATION ================== -->
+    <header class="navbar">
+      <div class="logo">PMV</div>
 
-  <!-- ================== NAVIGATION ================== -->
-  <header class="navbar">
-    <div class="logo">PMV</div>
-    <button class="hamburger" id="hamburger">&#9776;</button>
-    <nav id="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        &#9776;
+      </button>
 
-  <!-- ================== HERO SECTION ================== -->
-  <section id="home" class="section hero">
-    <canvas id="canvas"></canvas>
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>POP MÁRK-VIKTOR</h1>
-        <p class="slogan">"Dream big and dare to fail."</p>
-        <a href="https://drive.google.com/drive/folders/1DkjBry9Fd0HEhCNngBSeNYoyO9omcWHL?usp=sharing" class="hero-btn">Download CV</a>
+      <nav id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <!-- Theme toggle -->
+        <a
+          ><button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            🌞
+          </button></a
+        >
+      </nav>
+    </header>
+
+    <!-- ================== HERO SECTION ================== -->
+    <section id="home" class="section hero">
+      <canvas id="canvas"></canvas>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>POP MÁRK-VIKTOR</h1>
+          <p class="slogan">"Dream big and dare to fail."</p>
+          <a
+            href="https://drive.google.com/drive/folders/1DkjBry9Fd0HEhCNngBSeNYoyO9omcWHL?usp=sharing"
+            class="hero-btn"
+            >Download CV</a
+          >
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================== ABOUT SECTION ================== -->
-  <section id="about" class="section">
-    <div class="about-card">
-      <div class="about-header">
-        <h2>About Me</h2>
+    <!-- ================== ABOUT SECTION ================== -->
+    <section id="about" class="section">
+      <div class="about-card">
+        <div class="about-header">
+          <h2>About Me</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              <span class="highlight">Self-taught full-stack developer</span>
+              with a hands-on experience with utility-scale PV systems gained
+              through on-site work and a strong interest in engineering and
+              technology. Currently studying
+              <span class="highlight">Automotive Engineering in Oradea</span>.
+            </p>
+            <p>
+              Born in <span class="highlight">Dorolt, Satu Mare</span>, I also
+              serve as an organist, shaping discipline, creativity, and
+              attention to detail.
+            </p>
+            <p>
+              Motivated, curious, and always learning — focused on practical
+              solutions and personal growth.
+            </p>
+          </div>
+          <div class="about-image">
+            <img src="me.webp" alt="Picture of me" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== EDUCATION SECTION ================== -->
+    <section id="education" class="section">
+      <div class="skills-intro">
+        <h2>Education</h2>
         <div class="underline"></div>
+        <p>My academic journey and formal training.</p>
       </div>
-      <div class="about-content">
-        <div class="about-text">
+
+      <div class="education-timeline">
+        <!-- High School -->
+        <div class="education-card">
+          <img
+            src="cndssm_logo.png"
+            alt="Colegiul Național Doamna Stanca Logo"
+          />
+          <div class="education-content">
+            <h3>Colegiul Național „Doamna Stanca” Satu Mare</h3>
+            <span class="edu-date">2021 — 2025</span>
+            <p>
+              <strong>Mathematics and Computer Science</strong><br />
+              A prestigious high school known for its rigorous academic
+              programs, particularly in mathematics and computer science. It
+              prepares students for higher education through a strong focus on
+              theoretical and practical knowledge, fostering critical thinking,
+              discipline, and innovation. The school has a longstanding
+              tradition of excellence in both science and humanities, and it
+              actively encourages student participation in competitions and
+              extracurricular activities.
+            </p>
+            <a href="https://cndssm.com" target="_blank" class="edu-link"
+              >Visit Website</a
+            >
+          </div>
+        </div>
+
+        <!-- University -->
+        <div class="education-card">
+          <img src="uoradea_logo.jpg" alt="Universitatea din Oradea Logo" />
+          <div class="education-content">
+            <h3>University of Oradea</h3>
+            <span class="edu-date">2025 — 2029</span>
+            <p>
+              <strong
+                >Faculty of Managerial and Technological Engineering</strong
+              ><br />
+              <cite>Automotive Engineering</cite><br />
+              Offers multidisciplinary programs focused on engineering,
+              technology, and management. The university emphasizes practical
+              skills and innovation to prepare students for careers in
+              automotive, transport, and industrial sectors. It combines
+              theoretical knowledge with hands-on experience, fostering both
+              technical expertise and leadership abilities.
+            </p>
+            <a href="https://imt.uoradea.ro" target="_blank" class="edu-link"
+              >Visit Website</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== SKILLS SECTION ================== -->
+    <section id="skills" class="section">
+      <div class="skills-intro">
+        <h2>Skills & Expertise</h2>
+        <div class="underline"></div>
+        <p>
+          Technologies and principles I actively use to build reliable,
+          scalable, and clean solutions.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">💻</div>
+          <h3>Full-stack Developer</h3>
           <p>
-            <span class="highlight">Self-taught full-stack developer</span> with a hands-on experience with utility-scale PV systems gained through on-site work and a strong interest in engineering and technology. Currently studying <span class="highlight">Automotive Engineering in Oradea</span>.
+            HTML, JS, C/C++, C#, Java with focus on responsiveness,
+            accessibility, and performance.
           </p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🧠</div>
+          <h3>Problem Solving</h3>
           <p>
-            Born in <span class="highlight">Dorolt, Satu Mare</span>, I also serve as an organist, shaping discipline, creativity, and attention to detail.
+            Breaking down complex challenges into maintainable, real-world
+            solutions.
           </p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🏗️</div>
+          <h3>Clean Architecture</h3>
           <p>
-            Motivated, curious, and always learning — focused on practical solutions and personal growth.
+            Readable codebases, modular design, and long-term maintainability.
           </p>
         </div>
-        <div class="about-image">
-          <img src="me.webp" alt="Picture of me" />
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ================== EDUCATION SECTION ================== -->
-  <section id="education" class="section">
-    <div class="skills-intro">
-      <h2>Education</h2>
-      <div class="underline"></div>
-      <p>My academic journey and formal training.</p>
-    </div>
-
-    <div class="education-timeline">
-      <!-- High School -->
-      <div class="education-card">
-        <img src="cndssm_logo.png" alt="Colegiul Național Doamna Stanca Logo">
-        <div class="education-content">
-          <h3>Colegiul Național „Doamna Stanca” Satu Mare</h3>
-          <span class="edu-date">2021 — 2025</span>
+        <div class="skill-card">
+          <div class="skill-icon">🤝</div>
+          <h3>Team Collaboration</h3>
           <p>
-            <strong>Mathematics and Computer Science</strong><br>
-            A prestigious high school known for its rigorous academic programs, particularly in mathematics and computer science. It prepares students for higher education through a strong focus on theoretical and practical knowledge, fostering critical thinking, discipline, and innovation. The school has a longstanding tradition of excellence in both science and humanities, and it actively encourages student participation in competitions and extracurricular activities.
+            Clear communication, version control, and professional teamwork
+            workflows.
           </p>
-          <a href="https://cndssm.com" target="_blank" class="edu-link">Visit Website</a>
         </div>
       </div>
+    </section>
 
-      <!-- University -->
-      <div class="education-card">
-        <img src="uoradea_logo.jpg" alt="Universitatea din Oradea Logo">
-        <div class="education-content">
-          <h3>University of Oradea</h3>
-          <span class="edu-date">2025 — 2029</span>
-          <p>
-            <strong>Faculty of Managerial and Technological Engineering</strong><br>
-            <cite>Automotive Engineering</cite><br>
-            Offers multidisciplinary programs focused on engineering, technology, and management. The university emphasizes practical skills and innovation to prepare students for careers in automotive, transport, and industrial sectors. It combines theoretical knowledge with hands-on experience, fostering both technical expertise and leadership abilities.
-          </p>
-          <a href="https://imt.uoradea.ro" target="_blank" class="edu-link">Visit Website</a>
+    <!-- ================== CONTACT SECTION ================== -->
+    <section id="contact" class="section">
+      <div class="contact-card">
+        <div class="avatar-container">
+          <div class="avatar-circle">
+            <img src="avatar.webp" alt="Profile" />
+          </div>
         </div>
+        <form id="contactForm" class="contact-form">
+          <div class="input-group">
+            <span class="icon">&#128100;</span>
+            <input type="text" id="name" placeholder="Name" required />
+          </div>
+          <div class="input-group">
+            <span class="icon">&#9993;</span>
+            <input type="text" id="subject" placeholder="Subject" required />
+          </div>
+          <textarea
+            id="message"
+            placeholder="Your message..."
+            rows="3"
+            required
+          ></textarea>
+          <div
+            id="messageError"
+            style="
+              color: red;
+              font-size: 0.9rem;
+              margin-top: 4px;
+              display: none;
+            "
+          >
+            Please enter a message with at least 15 characters.
+          </div>
+          <div class="form-footer"></div>
+          <button type="submit" class="contact-btn">CONTACT ME</button>
+          <div
+            id="confirmation"
+            style="
+              color: green;
+              font-size: 1rem;
+              margin-top: 10px;
+              display: none;
+            "
+          >
+            Message sent!
+          </div>
+        </form>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================== SKILLS SECTION ================== -->
-  <section id="skills" class="section">
-    <div class="skills-intro">
-      <h2>Skills & Expertise</h2>
-      <div class="underline"></div>
-      <p>Technologies and principles I actively use to build reliable, scalable, and clean solutions.</p>
-    </div>
+    <!-- ================== FOOTER ================== -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="footer-copy">
+          <span class="copy-symbol">©</span>
+          <span id="year"></span>
+          <span class="copy-name">POP MÁRK</span>
+        </p>
 
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon">💻</div>
-        <h3>Full-stack Developer</h3>
-        <p>HTML, JS, C/C++, C#, Java with focus on responsiveness, accessibility, and performance.</p>
-      </div>
+        <div class="footer-socials">
+          <!-- GitHub -->
+          <a
+            href="https://github.com/popmarkviktor"
+            class="social-link"
+            aria-label="GitHub"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.84 3.14 8.95 7.49 10.4.55.1.75-.24.75-.53v-1.85c-3.05.66-3.69-1.47-3.69-1.47-.5-1.27-1.22-1.61-1.22-1.61-1-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.68 2.57 1.2 3.2.92.1-.71.38-1.2.7-1.48-2.43-.28-4.98-1.22-4.98-5.42 0-1.2.43-2.18 1.13-2.95-.11-.28-.49-1.41.11-2.94 0 0 .92-.3 3.02 1.13a10.5 10.5 0 0 1 5.5 0c2.1-1.43 3.02-1.13 3.02-1.13.6 1.53.22 2.66.11 2.94.7.77 1.13 1.75 1.13 2.95 0 4.21-2.56 5.13-5 5.41.39.34.73 1.01.73 2.04v3.02c0 .29.2.64.76.53 4.34-1.45 7.48-5.56 7.48-10.4C23.25 5.48 18.27.5 12 .5z"
+              />
+            </svg>
+          </a>
 
-      <div class="skill-card">
-        <div class="skill-icon">🧠</div>
-        <h3>Problem Solving</h3>
-        <p>Breaking down complex challenges into maintainable, real-world solutions.</p>
-      </div>
+          <!-- Instagram -->
+          <a
+            href="https://www.instagram.com/_mark.pop_/"
+            class="social-link"
+            aria-label="Instagram"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zm4.25 3.25A4.75 4.75 0 1 1 7.25 12 4.76 4.76 0 0 1 12 7.25zm0 2A2.75 2.75 0 1 0 14.75 12 2.75 2.75 0 0 0 12 9.25zM17.5 6.75a1.25 1.25 0 1 1-1.25-1.25A1.25 1.25 0 0 1 17.5 6.75z"
+              />
+            </svg>
+          </a>
 
-      <div class="skill-card">
-        <div class="skill-icon">🏗️</div>
-        <h3>Clean Architecture</h3>
-        <p>Readable codebases, modular design, and long-term maintainability.</p>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">🤝</div>
-        <h3>Team Collaboration</h3>
-        <p>Clear communication, version control, and professional teamwork workflows.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================== CONTACT SECTION ================== -->
-  <section id="contact" class="section">
-    <div class="contact-card">
-      <div class="avatar-container">
-        <div class="avatar-circle">
-          <img src="avatar.webp" alt="Profile" />
+          <!-- Facebook -->
+          <a
+            href="https://www.facebook.com/mark.pop.33671"
+            class="social-link"
+            aria-label="Facebook"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.593 1.324-1.324V1.325C24 .593 23.406 0 22.675 0z"
+              />
+            </svg>
+          </a>
         </div>
-      </div>
-      <form id="contactForm" class="contact-form">
-        <div class="input-group">
-          <span class="icon">&#128100;</span>
-          <input type="text" id="name" placeholder="Name" required />
-        </div>
-        <div class="input-group">
-          <span class="icon">&#9993;</span>
-          <input type="text" id="subject" placeholder="Subject" required />
-        </div>
-        <textarea id="message" placeholder="Your message..." rows="3" required></textarea>
-        <div id="messageError" style="color: red; font-size: 0.9rem; margin-top: 4px; display: none;">
-    Please enter a message with at least 15 characters.
-  </div>
-        <div class="form-footer"></div>
-        <button type="submit" class="contact-btn">CONTACT ME</button>
-        <div id="confirmation" style="color: green; font-size: 1rem; margin-top: 10px; display: none;">
-  Message sent!
-</div>
-      </form>
-    </div>
-  </section>
 
-  <script src="script.js"></script>
-</body>
+        <button id="backToTop" class="back-to-top" aria-label="Back to top">
+          ↑
+        </button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

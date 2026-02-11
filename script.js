@@ -1,116 +1,123 @@
-let resizeReset = function() {
-	w = canvasBody.width = window.innerWidth;
-  h = canvasBody.height = document.querySelector('.hero').offsetHeight;
-}
+/* =====================================================
+   CANVAS PARTICLE BACKGROUND
+===================================================== */
 
-const opts = { 
-	particleColor: "rgb(200,200,200)",
-	lineColor: "rgb(200,200,200)",
-	particleAmount: 30,
-	defaultSpeed: 1,
-	variantSpeed: 1,
-	defaultRadius: 2,
-	variantRadius: 2,
-	linkRadius: 200,
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+const opts = {
+  particleColor: "rgb(200,200,200)",
+  lineColor: "rgb(200,200,200)",
+  particleAmount: 30,
+  defaultSpeed: 1,
+  variantSpeed: 1,
+  defaultRadius: 2,
+  variantRadius: 2,
+  linkRadius: 200,
 };
 
-window.addEventListener("resize", function(){
-	deBouncer();
-});
+let w, h, particles = [];
+let resizeTimeout, delay = 200;
+const rgb = opts.lineColor.match(/\d+/g);
 
-let deBouncer = function() {
-    clearTimeout(tid);
-    tid = setTimeout(function() {
-        resizeReset();
-    }, delay);
-};
-
-let checkDistance = function(x1, y1, x2, y2){ 
-	return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-};
-
-let linkPoints = function(point1, hubs){ 
-	for (let i = 0; i < hubs.length; i++) {
-		let distance = checkDistance(point1.x, point1.y, hubs[i].x, hubs[i].y);
-		let opacity = 1 - distance / opts.linkRadius;
-		if (opacity > 0) { 
-			drawArea.lineWidth = 0.5;
-			drawArea.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${opacity})`;
-			drawArea.beginPath();
-			drawArea.moveTo(point1.x, point1.y);
-			drawArea.lineTo(hubs[i].x, hubs[i].y);
-			drawArea.closePath();
-			drawArea.stroke();
-		}
-	}
+/* ----- Resize canvas ----- */
+function resizeCanvas() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = document.querySelector(".hero").offsetHeight;
 }
 
-Particle = function(xPos, yPos){ 
-	this.x = Math.random() * w; 
-	this.y = Math.random() * h;
-	this.speed = opts.defaultSpeed + Math.random() * opts.variantSpeed; 
-	this.directionAngle = Math.floor(Math.random() * 360); 
-	this.color = opts.particleColor;
-	this.radius = opts.defaultRadius + Math.random() * opts. variantRadius; 
-	this.vector = {
-		x: Math.cos(this.directionAngle) * this.speed,
-		y: Math.sin(this.directionAngle) * this.speed
-	};
-	this.update = function(){ 
-		this.border(); 
-		this.x += this.vector.x; 
-		this.y += this.vector.y; 
-	};
-	this.border = function(){ 
-		if (this.x >= w || this.x <= 0) { 
-			this.vector.x *= -1;
-		}
-		if (this.y >= h || this.y <= 0) {
-			this.vector.y *= -1;
-		}
-		if (this.x > w) this.x = w;
-		if (this.y > h) this.y = h;
-		if (this.x < 0) this.x = 0;
-		if (this.y < 0) this.y = 0;	
-	};
-	this.draw = function(){ 
-		drawArea.beginPath();
-		drawArea.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-		drawArea.closePath();
-		drawArea.fillStyle = this.color;
-		drawArea.fill();
-	};
-};
-
-function setup(){ 
-	particles = [];
-	resizeReset();
-	for (let i = 0; i < opts.particleAmount; i++){
-		particles.push( new Particle() );
-	}
-	window.requestAnimationFrame(loop);
+/* ----- Debounce resize ----- */
+function debounceResize() {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(resizeCanvas, delay);
 }
 
-function loop(){ 
-	window.requestAnimationFrame(loop);
-	drawArea.clearRect(0,0,w,h);
-	for (let i = 0; i < particles.length; i++){
-		particles[i].update();
-		particles[i].draw();
-	}
-	for (let i = 0; i < particles.length; i++){
-		linkPoints(particles[i], particles);
-	}
+window.addEventListener("resize", debounceResize);
+
+/* ----- Distance calculation ----- */
+const distance = (x1, y1, x2, y2) =>
+  Math.hypot(x2 - x1, y2 - y1);
+
+/* ----- Draw line between particles ----- */
+function linkParticles(p1, allParticles) {
+  allParticles.forEach(p2 => {
+    const dist = distance(p1.x, p1.y, p2.x, p2.y);
+    const opacity = 1 - dist / opts.linkRadius;
+
+    if (opacity > 0) {
+      ctx.lineWidth = 0.5;
+      ctx.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${opacity})`;
+      ctx.beginPath();
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+      ctx.stroke();
+    }
+  });
 }
 
-const canvasBody = document.getElementById("canvas"),
-drawArea = canvasBody.getContext("2d");
-let delay = 200, tid,
-rgb = opts.lineColor.match(/\d+/g);
-resizeReset();
-setup();
+/* ----- Particle class ----- */
+class Particle {
+  constructor() {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.speed = opts.defaultSpeed + Math.random() * opts.variantSpeed;
+    this.directionAngle = Math.random() * 2 * Math.PI;
+    this.radius = opts.defaultRadius + Math.random() * opts.variantRadius;
+    this.color = opts.particleColor;
+    this.vector = {
+      x: Math.cos(this.directionAngle) * this.speed,
+      y: Math.sin(this.directionAngle) * this.speed
+    };
+  }
 
-//HAMBURGER MENU
+  update() {
+    this.x += this.vector.x;
+    this.y += this.vector.y;
+    this.checkBounds();
+  }
+
+  checkBounds() {
+    if (this.x <= 0 || this.x >= w) this.vector.x *= -1;
+    if (this.y <= 0 || this.y >= h) this.vector.y *= -1;
+    this.x = Math.min(Math.max(this.x, 0), w);
+    this.y = Math.min(Math.max(this.y, 0), h);
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+}
+
+/* ----- Setup particles and animation ----- */
+function initParticles() {
+  particles = [];
+  resizeCanvas();
+  for (let i = 0; i < opts.particleAmount; i++) {
+    particles.push(new Particle());
+  }
+  animate();
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, w, h);
+
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+
+  particles.forEach(p => linkParticles(p, particles));
+}
+
+initParticles();
+
+/* =====================================================
+   HAMBURGER MENU TOGGLE
+===================================================== */
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
@@ -118,37 +125,59 @@ hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-//MAIL SEND
-const form = document.getElementById('contactForm');
-  const messageInput = document.getElementById('message');
-  const messageError = document.getElementById('messageError');
-  const confirmation = document.getElementById('confirmation');
+/* =====================================================
+   CONTACT FORM MAILTO
+===================================================== */
+const form = document.getElementById("contactForm");
+const messageInput = document.getElementById("message");
+const messageError = document.getElementById("messageError");
+const confirmation = document.getElementById("confirmation");
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+form.addEventListener("submit", e => {
+  e.preventDefault();
 
-    messageError.style.display = 'none';
-	confirmation.style.display = 'none';
+  messageError.style.display = "none";
+  confirmation.style.display = "none";
 
-    const name = document.getElementById('name').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = messageInput.value.trim();
+  const name = document.getElementById("name").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = messageInput.value.trim();
 
-    if (message.length < 15) {
-      messageError.style.display = 'block';
-      messageInput.focus();
-      return;
-    }
+  if (message.length < 15) {
+    messageError.style.display = "block";
+    messageInput.focus();
+    return;
+  }
 
-    const mailtoLink = `mailto:popmarkviktor@gmail.com?subject=${encodeURIComponent(subject)}&body=Name:%20${encodeURIComponent(name)}%0D%0A%0D%0A${encodeURIComponent(message)}`;
+  const mailto = `mailto:popmarkviktor@gmail.com?subject=${encodeURIComponent(subject)}&body=Name:%20${encodeURIComponent(name)}%0D%0A%0D%0A${encodeURIComponent(message)}`;
+  window.open(mailto, "_blank");
 
-    window.open(mailtoLink, '_blank');
+  confirmation.style.display = "block";
+  setTimeout(() => confirmation.style.display = "none", 5000);
 
-    confirmation.style.display = 'block';
+  form.reset();
+});
 
-    setTimeout(() => {
-      confirmation.style.display = 'none';
-    }, 5000);
+/* =====================================================
+   COPYRIGHT YEAR
+===================================================== */
+document.getElementById("year").textContent = new Date().getFullYear();
 
-    form.reset();
-  });
+/* =====================================================
+   BACK TO TOP BUTTON
+===================================================== */
+const backToTopBtn = document.getElementById("backToTop");
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+/* =====================================================
+   LIGHT / DARK MODE TOGGLE
+===================================================== */
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", () => {
+  const html = document.documentElement;
+  const isDark = html.getAttribute("data-theme") === "dark";
+  html.setAttribute("data-theme", isDark ? "light" : "dark");
+  themeToggle.textContent = isDark ? "🌙" : "🌞";
+});
